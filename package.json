@@ -39,5 +39,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@wemake-services/eslint-config-javascript": "^2.1.1",
+    "@wemake-services/eslint-config-typescript": "^3.1.1"
   }
 }
