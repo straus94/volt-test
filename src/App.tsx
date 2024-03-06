@@ -1,24 +1,31 @@
 import React from 'react'
-import logo from './logo.svg'
-import './App.css'
+import {useDispatch, useSelector} from 'react-redux'
+import {add} from './store/todosSlice'
+import {RootState} from './store/store'
+import {TodoModel, TodoStatusEnum} from './models/Todo'
+import Todo from './components/Todo/Todo'
+import './App.scss'
 
 function App(): JSX.Element {
+
+  const todos = useSelector((state: RootState) => state.todos)
+  const dispatch = useDispatch()
+
+  const test: TodoModel = {
+    id: '-',
+    title: 'title',
+    status: false
+  }
+
+  const addTodo = (): void => {
+    dispatch(add(test))
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="list">
+        <Todo />
+      </div>
     </div>
   )
 }
